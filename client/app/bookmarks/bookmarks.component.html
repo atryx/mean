@@ -1,0 +1,8 @@
+<div class="col-md-6 col-md-offset-3">
+    <h3>All bookmarks:</h3>
+    <ul>
+        <li *ngFor="let bookmark of bookmarks">
+            {{bookmark.name}} ({{bookmark.url}} {{bookmark.desc}}) - <a (click)="deleteBookmark(bookmark._id)">Delete</a>
+        </li>
+    </ul>
+</div>
