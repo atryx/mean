@@ -17,9 +17,6 @@ export class MockComponent implements OnInit {
     }
 
     private loadFakeData() {
-        this.mockService.getAll().map(response  => { 
-            console.log(response);
-            console.log(response.people);
-            this.people = response; });
+        this.mockService.getAll().subscribe(mock => { this.people = mock.roots.bookmark_bar.children; });
     }
 }

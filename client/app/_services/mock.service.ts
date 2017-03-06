@@ -17,6 +17,6 @@ export class MockService {
     constructor(private http: Http, private config: AppConfig) {   }
 
     getAll() {
-        return this.http.get("https://jsonblob.com/80dbcde8-01d5-11e7-a0ba-b5835a5173da").map(res => res.json());
+        return this.http.get("https://api.myjson.com/bins/orke1").map((response: Response) =>  response.json());
     }
 }
