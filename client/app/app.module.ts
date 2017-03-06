@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { TreeModule } from 'angular-tree-component';
 
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
@@ -21,7 +22,8 @@ import { RegisterComponent } from './register/index';
         BrowserModule,
         FormsModule,
         HttpModule,
-        routing
+        routing,
+        TreeModule
     ],
     declarations: [
         AppComponent,

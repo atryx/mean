@@ -5,3 +5,8 @@
 .help-block {
     font-size: 12px;
 }
+
+.main-container{ 
+    height: 400px;
+    overflow-y: auto;
+}

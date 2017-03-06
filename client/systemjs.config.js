@@ -23,6 +23,10 @@
             '@angular/http/testing': 'npm:@angular/http/bundles/http-testing.umd.js',
             '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
             '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
+            'angular-tree-component': 'node_modules/angular-tree-component/dist/angular-tree-component.umd.js',
+            'ng2-mobx': 'node_modules/ng2-mobx/dist/ng2-mobx.umd.js',
+            'lodash': 'node_modules/lodash/lodash.js',
+            'mobx': 'node_modules/mobx/lib/mobx.umd.js',
 
             // other libraries
             'rxjs': 'npm:rxjs'
