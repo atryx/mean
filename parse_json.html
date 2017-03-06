@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<body>
+		<div ng-app="myApp" ng-controller="myCtrl">
+			<div>{{bookmarks}}</div>
+		</div>
+		<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope, $http) {
+			$scope.bookmarks = [];
+			$http.get("https://api.myjson.com/bins/orke1")
+				.then(function(response) {
+					flatten(response.data.roots.bookmark_bar);
+				});
+
+				function flatten(array, parentID) {
+					var bookmark = {};
+					if(array.type === 'folder' || array.type === 'url') {
+						bookmark.id = array.id;
+						bookmark.name = array.name;
+						bookmark.type = array.type;
+						bookmark.date_added = array.date_added;
+						bookmark.date_modified = array.date_modified;
+						bookmark.parentId = parentID;
+						$scope.bookmarks.push(bookmark);
+						if(array.children && array.children.length > 0) {
+							for (var i = 0; i < array.children.length; i++) {
+								flatten(array.children[i],array.id);
+							}
+						}
+					}
+				}				 
+		});
+		</script>
+	</body>
+</html>
