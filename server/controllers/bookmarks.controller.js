@@ -6,7 +6,7 @@ var bookmarkService = require('services/bookmark.service');
 // routes
 router.get('/', getAll);
 router.get('/:_id', getById);
-router.get('/create', create);
+router.post('/new', create);
 router.put('/:_id', update);
 router.delete('/:_id', _delete);
 

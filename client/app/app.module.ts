@@ -13,6 +13,7 @@ import { AuthGuard } from './_guards/index';
 import { AlertService, AuthenticationService, UserService, BookmarkService, MockService } from './_services/index';
 import { HomeComponent } from './home/index';
 import { BookmarksComponent } from './bookmarks/index';
+import { BookmarkComponent } from './bookmark/index';
 import { MockComponent } from './mock/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
@@ -30,6 +31,7 @@ import { RegisterComponent } from './register/index';
         AlertComponent,
         HomeComponent,
         BookmarksComponent,
+        BookmarkComponent,
         MockComponent,
         LoginComponent,
         RegisterComponent

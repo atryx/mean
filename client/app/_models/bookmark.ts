@@ -3,5 +3,8 @@ export class Bookmark {
     name: string;
     url: string;
     desc: string;
-    updated: Date;
+    type: string;
+    date_added: Date;
+    date_modified: Date;
+    parentId : number;
 }
