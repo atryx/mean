@@ -10,15 +10,19 @@ import { BookmarkService, UserService } from '../_services/index';
 
 export class BookmarkComponent implements OnInit{
     currentUser: User;
-    bookmark: Bookmark = {_id: "1",name: "the name of the bookmark", url: "test", desc: "something bla bla", 
-    type: "url", date_added: null, date_modified: null, parentId: null };
+    bookmark: Bookmark;
+    id: string = "53";
 
     constructor(private userService: UserService, private bookmarkService: BookmarkService) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     }
 
     ngOnInit() {
-        //this.createBookmark(this.bookmark);
+        // this.getBookmark(this.id);
+    }
+
+    private getBookmark(id: string) {
+        this.bookmarkService.getById(id).subscribe(response => { this.bookmark = response;});
     }
 
     private createBookmark(bookmark: Bookmark) {
