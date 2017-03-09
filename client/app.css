@@ -7,9 +7,10 @@
 }
 .container {
     width: 100%;
+    height: calc(100vh - 120px);
 }
-.main-container{ 
-    height: 730px;
+.main-container{
+    height:100%;
     width: 100%;
     overflow-y: auto;
     margin-top:60px;
