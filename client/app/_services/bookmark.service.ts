@@ -13,7 +13,7 @@ export class BookmarkService {
     }
 
     getById(_id: string) {
-        return this.http.get(this.config.apiUrl + '/bookmark/' + _id, this.jwt()).map((response: Response) => response.json());
+        return this.http.get(this.config.apiUrl + '/bookmarks/' + _id, this.jwt()).map((response: Response) => response.json());
     }
 
     create(bookmark: Bookmark) {

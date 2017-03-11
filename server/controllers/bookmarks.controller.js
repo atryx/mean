@@ -23,7 +23,7 @@ function getAll(req, res) {
 }
 
 function getById(req, res) {
-    bookmarkService.getById(req.bookmark.sub)
+    bookmarkService.getById(req.params._id)
         .then(function (bookmark) {
             if (bookmark) {
                 res.send(bookmark);

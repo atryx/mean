@@ -27,8 +27,7 @@ export class BookmarksComponent implements OnInit {
         this.loadAllBookmarks();
     }
    onSelect(bookmark: Bookmark) {
-       console.log("click");
-        this.router.navigate(['/bookmark', bookmark._id]);
+        this.router.navigate(['/bookmarks', bookmark._id]);
     }
 
     deleteBookmark(_id: string) {
