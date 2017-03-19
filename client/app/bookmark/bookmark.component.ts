@@ -1,35 +1,71 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {
+    Component,
+    OnInit
+} from '@angular/core';
+import {
+    ActivatedRoute,
+    Router
+} from '@angular/router';
 
-import { Bookmark, User } from '../_models/index';
-import { BookmarkService, UserService } from '../_services/index';
+import {
+    Bookmark,
+    User
+} from '../_models/index';
+import {
+    BookmarkService,
+    UserService,
+    AlertService
+} from '../_services/index';
 
 @Component({
     moduleId: module.id,
     templateUrl: 'bookmark.component.html'
 })
 
-export class BookmarkComponent implements OnInit{
+export class BookmarkComponent implements OnInit {
     currentUser: User;
     bookmark: Bookmark;
     id: string;
+    btnLabel: string;
 
-    constructor(private userService: UserService, private bookmarkService: BookmarkService, private route: ActivatedRoute) {
+    constructor(
+        private userService: UserService,
+        private bookmarkService: BookmarkService,
+        private route: ActivatedRoute,
+        private router: Router,
+        private alertService: AlertService) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
         this.bookmark = new Bookmark;
     }
 
     ngOnInit() {
         this.id = this.route.snapshot.params['id'];
-        this.getBookmark(this.id);
+        if (this.id !== 'new') {
+            this.getBookmark(this.id);
+            this.btnLabel = 'Update';
+        } else {
+            this.btnLabel = 'Create';
+        }
     }
+
+    save(bookmark: Bookmark) {
+        if (this.bookmark._id) {
+            this.bookmarkService.update(this.bookmark).subscribe(response => {
+                this.alertService.success("bookmark saved successfully!", true);
+                this.router.navigate(['/bookmarks']);
+            });
+        } else {
+            this.bookmarkService.create(bookmark).subscribe(response => {
+                this.alertService.success("bookmark saved successfully!", true);
+                this.router.navigate(['/bookmarks']);
+            });
+        }
+    }
+
 
     private getBookmark(id: string) {
-        this.bookmarkService.getById(id).subscribe(response => { this.bookmark = response; console.log(this.bookmark);});
+        this.bookmarkService.getById(id).subscribe(response => {
+            this.bookmark = response;
+        });
     }
-
-    private createBookmark(bookmark: Bookmark) {
-        this.bookmarkService.create(bookmark).subscribe(response => {console.log(response)});
-    }
-    
 }

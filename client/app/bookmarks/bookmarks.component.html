@@ -4,7 +4,7 @@
     <div class="form-group row">
         <label for="example-search-input" class="col-2 col-form-label">Search</label>
         <div class="col-10">
-            <input class="form-control" type="search" value="Search bookmark" id="example-search-input">
+            <input class="form-control" type="search" [(ngModel)]="query" value="Search bookmark" id="example-search-input">
         </div>
     </div>
     <table class="table table-bordered">
@@ -17,7 +17,7 @@
             <th></th>
         </thead>
         <tbody>
-            <tr *ngFor="let bookmark of bookmarks">
+            <tr *ngFor="let bookmark of bookmarks | bookmarkFilter:query">
                 <td>{{bookmark._id}}</td>
                 <td><a href="{{bookmark.url}}" target="_blank">{{bookmark.name}}</a></td>
                 <td>{{bookmark.desc}}</td>

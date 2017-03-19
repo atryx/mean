@@ -7,14 +7,12 @@ import { BookmarkService, UserService } from '../_services/index';
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'bookmarks.component.html'
+    templateUrl: 'bookmarks.component.html',
 })
 
 export class BookmarksComponent implements OnInit {
     currentUser: User;
     bookmarks: Bookmark[] = [];
-    bookmarks_bar: Bookmark[] = [];
-    other: Bookmark[] = [];
 
     constructor(
         private userService: UserService, 

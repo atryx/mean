@@ -6,25 +6,25 @@
     <div class="form-group row">
         <label for="example-text-input" class="col-2 col-form-label">Name</label>
         <div class="col-10">
-            <input class="form-control" type="text" [value]="bookmark.name" (input)="bookmark.name" id="example-text-input">
+            <input class="form-control" type="text" [(ngModel)]="bookmark.name" name="bookmarkName" id="example-text-input">
         </div>
     </div>
     <div class="form-group row">
         <label for="example-url-input" class="col-2 col-form-label">URL</label>
         <div class="col-10">
-            <input class="form-control" type="url" [value]="bookmark.url" (input)="bookmark.url" id="example-url-input">
+            <input class="form-control" type="url" [(ngModel)]="bookmark.url" name="bookmarkUrl" id="example-url-input">
         </div>
     </div>
     <div class="form-group row">
         <label for="example-date-input" class="col-2 col-form-label">Date Added</label>
         <div class="col-10">
-            <input class="form-control" type="date" [value]="bookmark.date_added" (input)="bookmark.date_added" id="example-date-input">
+            <input class="form-control" type="date" [(ngModel)]="bookmark.date_added" name="date_added" id="example-date-input">
         </div>
     </div>
     <div class="form-group row">
         <label for="exampleTextarea" class="col-2 col-form-label">Description</label>
         <div class="col-10">
-            <textarea class="form-control" id="exampleTextarea" [value]="bookmark.desc" (input)="bookmark.desc" rows="3"></textarea>
+            <textarea class="form-control" id="exampleTextarea" name="desc" [(ngModel)]="bookmark.desc" rows="3"></textarea>
         </div>
     </div>
     <div class="form-group row">
@@ -39,7 +39,7 @@
     <div class="form-group row">
         <div class="col-10 col-offset-2">
             <button type="button" class="btn btn-default" [routerLink]="['/bookmarks']">Cancel</button> 
-            <button type="button" class="btn btn-success" >Save</button> 
+            <button type="button" class="btn btn-success" (click)="save(bookmark)" >{{btnLabel}}</button> 
         </div>
     </div>
 </form>

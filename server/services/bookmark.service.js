@@ -87,6 +87,7 @@ function create(bookmarkParam) {
 }
 
 function update(_id, bookmarkParam) {
+
     var deferred = Q.defer();
 
     // validation
@@ -118,7 +119,7 @@ function update(_id, bookmarkParam) {
             name: bookmarkParam.name,
             url: bookmarkParam.url,
             desc: bookmarkParam.desc,
-            updated: bookmarkParam.updated,
+            date_added: bookmarkParam.date_added,
         };
 
         db.bookmarks.update(
