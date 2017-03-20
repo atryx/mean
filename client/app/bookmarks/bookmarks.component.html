@@ -1,4 +1,4 @@
-<div class="col-xs-12">
+<div class="bookmarks-container">
     <h3>All bookmarks:</h3>
     <p><a [routerLink]="['/bookmarks/new']">Create a new bookmark</a></p>
     <div class="form-group row">
@@ -7,7 +7,8 @@
             <input class="form-control" type="search" [(ngModel)]="query" value="Search bookmark" id="example-search-input">
         </div>
     </div>
-    <table class="table table-bordered">
+    <my-spinner [isRunning]="isRequesting"></my-spinner>
+    <table class="table table-bordered" [hidden]="isRequesting">
         <thead class="thead-inverse">
             <th>ID</th>
             <th>Name</th>

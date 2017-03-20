@@ -23,6 +23,7 @@ import {
 })
 
 export class BookmarkComponent implements OnInit {
+    public isRequesting: boolean;
     currentUser: User;
     bookmark: Bookmark;
     id: string;
@@ -64,8 +65,15 @@ export class BookmarkComponent implements OnInit {
 
 
     private getBookmark(id: string) {
-        this.bookmarkService.getById(id).subscribe(response => {
-            this.bookmark = response;
-        });
+        this.isRequesting = true;
+        this.bookmarkService.getById(id).subscribe(response => 
+            this.bookmark = response,
+            () => this.stopRefreshing(),
+            () => this.stopRefreshing()
+        );
+    }
+
+    private stopRefreshing() {
+        this.isRequesting = false;
     }
 }
