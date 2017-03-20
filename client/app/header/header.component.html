@@ -1,0 +1,5 @@
+<div class="header text-center">
+    <div *ngFor="let menu of menus" class="menu-item" [routerLink]="[menu.address]">
+        <span>{{menu.name}}</span>
+    </div>
+</div>

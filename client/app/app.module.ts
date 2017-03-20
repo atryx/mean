@@ -17,6 +17,7 @@ import { BookmarkComponent } from './bookmark/index';
 import { MockComponent } from './mock/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
+import { HeaderComponent } from './header/index';
 
 @NgModule({
     imports: [
@@ -31,6 +32,7 @@ import { RegisterComponent } from './register/index';
         AlertComponent,
         BookmarkFilterPipe,
         HomeComponent,
+        HeaderComponent,
         BookmarksComponent,
         BookmarkComponent,
         MockComponent,
